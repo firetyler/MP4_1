@@ -19,28 +19,14 @@ public class MoveState extends State{
 
     @Override
     public void pointerDown(Point point) {
-        /**
-         * if (selected != null && pointerDown)
-         *       {
-         *       if (mode == Mode.MOVE)
-         *         {
-         *         selected.moveTo(point);
-         *         repaint(); // uppmanar swing att måla om
-         *         }
-         *       else if(mode == Mode.RESIZE)
-         *         {
-         *         selected.resizeTo(point);
-         *         repaint();
-         *         }
-         *       }
-         */
 
+        selected = shapeContainer.select(point);
 
     }
 
     @Override
     public void pointerUp(Point point) {
-
+        selected = null;
     }
 
     @Override

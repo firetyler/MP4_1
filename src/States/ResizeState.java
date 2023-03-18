@@ -24,6 +24,9 @@ public class ResizeState extends State{
 
     @Override
     public void pointerMoved(Point point, boolean pointerDown) {
-        selectedShape.resizeTo(point);
+        if (selectedShape != null && pointerDown) {
+            selectedShape.resizeTo(point);
+            shapeContainer.repaint();
+        }
     }
 }
