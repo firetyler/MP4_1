@@ -7,7 +7,6 @@ import Default.ShapeContainer;
 import java.util.List;
 
 public class MoveState extends State{
-    private ShapeContainer shapeContainer;
     private Shape selected;
 
     public MoveState(List<Shape> shapes, ShapeContainer shapeContainer) {
@@ -31,6 +30,7 @@ public class MoveState extends State{
 
     @Override
     public void pointerMoved(Point point, boolean pointerDown) {
+
         selected = shapeContainer.select(point);
         if(selected != null && pointerDown){
             selected.moveTo(point);

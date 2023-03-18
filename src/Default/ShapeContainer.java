@@ -24,6 +24,9 @@ public class ShapeContainer extends JPanel implements Pointable
     public void setState(State state){
       this.state = state;
     }
+    private String shape;
+    private Point startPoint;
+    private Point endPoint;
 
     public List<Shape> getShapes(){return this.shapes;}
   public ShapeContainer()
@@ -33,6 +36,26 @@ public class ShapeContainer extends JPanel implements Pointable
     this.addMouseListener(mouseHandler);
     this.addMouseMotionListener(mouseHandler);
     this.setBackground(Color.white);
+    }
+
+    public Shape newShape(Point point){
+      if(shape.contains("Circle")){
+        return new Circle(point,Math.random()*50);
+      }
+      else{
+        if (startPoint == null) {
+          startPoint = point;
+        } else if (endPoint == null) {
+          endPoint = point;
+          return new Line(startPoint, endPoint);
+
+        }
+      }
+      return null;
+    }
+
+    public void setShape(String shape){
+      this.shape = shape;
     }
   
   public void addShape(Shape shape)

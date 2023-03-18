@@ -21,7 +21,7 @@ public class InsertState extends State {
 
     @Override
     public void pointerDown(Point point ) {
-        shape = new Circle(point,Math.random()*50);
+        shape = shapeContainer.newShape(point);
         shapes.add(shape);
     }
 

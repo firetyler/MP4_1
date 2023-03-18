@@ -27,7 +27,7 @@ public class ShapeApp extends JFrame
     JMenu menu = new JMenu("Modes");
 
     createMenuItem(menu, "Insert", e -> shapeContainer.setState(new InsertState(shapeContainer.getShapes(),shapeContainer)));
-    createMenuItem(menu, "Move", e -> shapeContainer.setState(new MoveState(shapeContainer.getShapes(),shapeContainer));
+    createMenuItem(menu, "Move", e -> shapeContainer.setState(new MoveState(shapeContainer.getShapes(),shapeContainer)));
     createMenuItem(menu, "Delete", e -> shapeContainer.setState(new DeleteState(shapeContainer.getShapes(),shapeContainer)));
     createMenuItem(menu, "Mark", e -> shapeContainer.setState(new MarkState(shapeContainer.getShapes(),shapeContainer)));
     createMenuItem(menu, "Unmark", e -> shapeContainer.setState(new UnmarkState(shapeContainer.getShapes(),shapeContainer)));
@@ -35,10 +35,13 @@ public class ShapeApp extends JFrame
 
     JMenu shapesManu = new JMenu("Shapes");
 
-    createMenuItem(shapesManu,"Circle",e -> shapeContainer.setShape());
+    createMenuItem(shapesManu,"Circle",e -> shapeContainer.setShape("Circle"));
+    createMenuItem(shapesManu,"Line",e -> shapeContainer.setShape("Line"));
+
 
     JMenuBar menuBar = new JMenuBar();
     menuBar.add(menu);
+      menuBar.add(shapesManu);
     this.setJMenuBar(menuBar);
     }
   

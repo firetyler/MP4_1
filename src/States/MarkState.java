@@ -8,7 +8,6 @@ import Default.ShapeDecorator;
 import java.util.List;
 
 public class MarkState extends State{
-    private ShapeContainer shapeContainer;
     private Shape selected;
 
     public MarkState(List<Shape> shapes, ShapeContainer shapeContainer) {
