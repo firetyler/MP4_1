@@ -14,11 +14,20 @@ public class ShapeDecorator implements Shape
   @Override
   public void draw(Graphics g)
     {
-    decoratee.draw(g);
-    Point position = decoratee.getPosition();
-    int x = (int)(position.getX()-decoratee.getWidth()/2.0+0.5);
-    int y = (int)(position.getY()-decoratee.getHeight()/2.0+0.5);
-    g.fillOval(x,y,(int)(decoratee.getWidth()+0.5),(int)(decoratee.getHeight()+0.5));
+      if(decoratee instanceof Circle){
+        decoratee.draw(g);
+        Point position = decoratee.getPosition();
+        int x = (int)(position.getX()-decoratee.getWidth()/2.0+0.5);
+        int y = (int)(position.getY()-decoratee.getHeight()/2.0+0.5);
+        g.fillOval(x,y,(int)(decoratee.getWidth()+0.5),(int)(decoratee.getHeight()+0.5));
+      }
+      else if(decoratee instanceof Rectangle){
+        decoratee.draw(g);
+        Point position = decoratee.getPosition();
+        int x = (int)(position.getX()+0.5);
+        int y = (int)(position.getY()+0.5);
+        g.fillRect(x,y,(int)(decoratee.getWidth()+0.5),(int)(decoratee.getHeight()+0.5));
+      }
     }
   @Override
   public Point getPosition()

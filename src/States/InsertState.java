@@ -22,7 +22,8 @@ public class InsertState extends State {
     @Override
     public void pointerDown(Point point ) {
         shape = shapeContainer.newShape(point);
-        shapes.add(shape);
+        if(shape != null)
+            shapes.add(shape);
     }
 
     @Override

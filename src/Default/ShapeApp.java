@@ -37,6 +37,7 @@ public class ShapeApp extends JFrame
 
     createMenuItem(shapesManu,"Circle",e -> shapeContainer.setShape("Circle"));
     createMenuItem(shapesManu,"Line",e -> shapeContainer.setShape("Line"));
+    createMenuItem(shapesManu, "Rectangle", e->shapeContainer.setShape("Rectangle"));
 
 
     JMenuBar menuBar = new JMenuBar();

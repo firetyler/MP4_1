@@ -24,7 +24,7 @@ public class ShapeContainer extends JPanel implements Pointable
     public void setState(State state){
       this.state = state;
     }
-    private String shape;
+    private String shape = "Circle";
     private Point startPoint;
     private Point endPoint;
 
@@ -42,13 +42,28 @@ public class ShapeContainer extends JPanel implements Pointable
       if(shape.contains("Circle")){
         return new Circle(point,Math.random()*50);
       }
-      else{
+      else if(shape.contains("Line")){
         if (startPoint == null) {
           startPoint = point;
         } else if (endPoint == null) {
           endPoint = point;
-          return new Line(startPoint, endPoint);
+          Line line = new Line(startPoint, endPoint);
+          startPoint = null;
+          endPoint = null;
+          return line;
 
+        }
+      }
+      else if(shape.contains("Rectangle")){
+        if(startPoint == null){
+          startPoint = point;
+        }
+        else if(endPoint == null){
+          endPoint = point;
+          Rectangle rectangle = new Rectangle(startPoint, endPoint);
+          startPoint = null;
+          endPoint = null;
+          return rectangle;
         }
       }
       return null;
