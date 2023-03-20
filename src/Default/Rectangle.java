@@ -7,17 +7,20 @@ public class Rectangle implements Shape{
     private Point start;
     private double width;
     private double height;
+    private Point center;
 
     public Rectangle(Point start, Point end){
         if(start.getX() > end.getX() && start.getY() > end.getY()){
             this.start = end;
             this.width = Math.abs(start.getX() - end.getX());
             this.height = Math.abs(start.getY() - end.getY());
+            center = new Point(start.getX() - width/2, start.getY() - height/2);
         }
         else{
             this.start = start;
             this.width = Math.abs(end.getX() - start.getX());
             this.height = Math.abs(end.getY() - start.getY());
+            center = new Point(start.getX() + width/2, start.getY() + height/2);
         }
     }
 
@@ -54,8 +57,8 @@ public class Rectangle implements Shape{
 
     @Override
     public void moveTo(Point point) {
-        
-        start.moveTo(point);
+        center.moveTo(point);
+        start.moveTo(new Point(center.getX() - width/2, center.getY() - height/2));
         
     }
 
@@ -66,6 +69,10 @@ public class Rectangle implements Shape{
 
     @Override
     public void resizeTo(Point point) {
+        if(point.getX() < start.getX() && point.getY() < start.getY()){
+            start.moveTo(point);
+
+        }
         width = point.getX() - start.getX();
         height = point.getY() - start.getY();
     }

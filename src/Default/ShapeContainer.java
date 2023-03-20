@@ -23,7 +23,9 @@ public class ShapeContainer extends JPanel implements Pointable
     private State state = new InsertState(this.shapes,this);
     public void setState(State state){
       this.state = state;
+      
     }
+
     private String shape = "Circle";
     private Point startPoint;
     private Point endPoint;

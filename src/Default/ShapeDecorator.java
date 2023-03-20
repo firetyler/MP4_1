@@ -28,6 +28,8 @@ public class ShapeDecorator implements Shape
         int y = (int)(position.getY()+0.5);
         g.fillRect(x,y,(int)(decoratee.getWidth()+0.5),(int)(decoratee.getHeight()+0.5));
       }
+      else
+        decoratee.draw(g);
     }
   @Override
   public Point getPosition()

@@ -7,6 +7,7 @@ import Default.ShapeContainer;
 import java.util.List;
 
 public abstract class State implements Pointable {
+    public static final String INSERT = null;
     protected List<Shape> shapes;
     protected ShapeContainer shapeContainer;
 
