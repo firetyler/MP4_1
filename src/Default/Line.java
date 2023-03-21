@@ -5,17 +5,14 @@ public class Line implements Shape{
 
     private Point start;
     private Point end;
-    private Point center;
 
     public Line(double x1, double y1, double x2, double y2){
         start = new Point(x1,y1);
         end = new Point(x2,y2);
-        center = new Point((x1+x2)/2,(y1+y2)/2);
     }
     public Line(Point start, Point end){
         this.start = start;
         this.end = end;
-        center = new Point((start.getX()+end.getX())/2,(start.getY()+end.getY())/2);
     }
 
     public void draw(Graphics g){
@@ -38,7 +35,6 @@ public class Line implements Shape{
         return false;
     }
     public void moveTo(Point point){
-        center.moveTo(point);
         start.moveTo(point);
     }
     public void move(double dx, double dy){
